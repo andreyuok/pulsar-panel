@@ -17,6 +17,8 @@ class DashboardController extends CoreController
             return $this->redirectToRoute('app_not_auth');
         }
 
+        $this->checkAndUpdateDomainsList();
+
         return $this->render('dashboard/index.html.twig', [
             'controller_name' => 'DashboardController',
             'domain_list' => $this->listDomains(),

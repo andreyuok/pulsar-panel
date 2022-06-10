@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Domains{% endblock %}
+
+{% block body %}
+    <h1>Domains</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ domain.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ domain.name }}</td>
+            </tr>
+            <tr>
+                <th>Document_root</th>
+                <td>{{ domain.documentRoot }}</td>
+            </tr>
+            <tr>
+                <th>User_id</th>
+                <td>{{ domain.userId }}</td>
+            </tr>
+            <tr>
+                <th>Vhost_content</th>
+                <td>{{ domain.vhostContent }}</td>
+            </tr>
+            <tr>
+                <th>Is_enabled</th>
+                <td>{{ domain.isEnabled ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ domain.updatedAt ? domain.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ domain.createdAt ? domain.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_domains_crud_index') }}">back to list</a>
+
+    <a href="{{ path('app_domains_crud_edit', {'id': domain.id}) }}">edit</a>
+
+    {{ include('domains_crud/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Domains index{% endblock %}
+
+{% block body %}
+    <h1>Domains index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Document_root</th>
+                <th>User_id</th>
+                <th>Vhost_content</th>
+                <th>Is_enabled</th>
+                <th>Updated_at</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for domain in domains %}
+            <tr>
+                <td>{{ domain.id }}</td>
+                <td>{{ domain.name }}</td>
+                <td>{{ domain.documentRoot }}</td>
+                <td>{{ domain.userId }}</td>
+                <td>{{ domain.vhostContent }}</td>
+                <td>{{ domain.isEnabled ? 'Yes' : 'No' }}</td>
+                <td>{{ domain.updatedAt ? domain.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ domain.createdAt ? domain.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_domains_crud_show', {'id': domain.id}) }}">show</a>
+                    <a href="{{ path('app_domains_crud_edit', {'id': domain.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_domains_crud_new') }}">Create new</a>
+{% endblock %}

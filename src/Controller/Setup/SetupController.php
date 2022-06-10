@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SetupController extends  CoreController
 {
     /** @var EntityManagerInterface  */
-    public $em;
+    public \Doctrine\ORM\EntityManager $em;
 
     /**
      * @param EntityManagerInterface $entityManager

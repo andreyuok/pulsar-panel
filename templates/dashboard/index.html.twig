@@ -10,7 +10,7 @@
         <div class="container-fluid w-75 mb-5 pt-2 pb-2 bg-secondary text-center text-uppercase fw-bolder">
             <span class="text-center text-dark">Domains</span>
         </div>
-        <div class="container-fluid w-50 text-center text-white">
+        <div class="container-fluid w-50 text-center">
             <table class="table text-center">
                 <thead class="table-dark">
                 <tr>
@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                 {% for domain in domain_list %}
-                    <tr class="text-center text-white">
+                    <tr class="text-center">
                         <th scope="row">{{ loop.index }}</th>
                         <td>{{ domain }}</td>
                         <td>Otto</td>
